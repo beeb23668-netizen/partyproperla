@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Party Proper LA — Arts & Crafts Experiences for Every Celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --coral: #F25C54;
+    --yellow: #F7B731;
+    --mint: #26DE81;
+    --sky: #45AAF2;
+    --purple: #A55EEA;
+    --dark: #1E1B30;
+    --cream: #FFFDF7;
+    --white: #FFFFFF;
+    --gray: #6B6B80;
+    --light: #F4F4F8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255,253,247,0.95); backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(242,92,84,0.1);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 72px;
+  }
+  .logo { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 38px; height: 38px; background: var(--coral); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; animation: wiggle 4s ease-in-out infinite; }
+  @keyframes wiggle { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
+  .logo span { color: var(--coral); }
+  nav ul { list-style: none; display: flex; gap: 32px; align-items: center; }
+  nav a { text-decoration: none; color: var(--dark); font-weight: 800; font-size: 0.9rem; transition: color .2s; }
+  nav a:hover { color: var(--coral); }
+  .nav-cta { background: var(--coral); color: white !important; padding: 10px 26px; border-radius: 50px; transition: transform .2s, box-shadow .2s !important; }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(242,92,84,.35) !important; }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding: 110px 5% 80px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .2; }
+  .blob-1 { width: 600px; height: 600px; background: var(--coral); top: -150px; right: -100px; }
+  .blob-2 { width: 450px; height: 450px; background: var(--yellow); bottom: -80px; left: -100px; }
+  .blob-3 { width: 350px; height: 350px; background: var(--mint); top: 35%; right: 20%; }
+  .confetti { position: absolute; border-radius: 3px; animation: float 5s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-28px) rotate(180deg)} }
+  .hero-content { position: relative; z-index: 2; max-width: 660px; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: var(--dark); font-weight: 900; font-size: .82rem; letter-spacing: .5px; padding: 9px 20px; border-radius: 50px; margin-bottom: 28px; animation: pop .6s cubic-bezier(.34,1.56,.64,1) .1s both; }
+  @keyframes pop { from{transform:scale(.8);opacity:0} to{transform:scale(1);opacity:1} }
+  h1 { font-family: 'Fredoka One', cursive; font-size: clamp(3.2rem, 7vw, 5.8rem); line-height: 1.0; margin-bottom: 24px; animation: up .7s ease .2s both; }
+  @keyframes up { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
+  .c1 { color: var(--coral); } .c2 { color: var(--yellow); }
+  .hero-sub { font-size: 1.1rem; color: var(--gray); font-weight: 600; line-height: 1.75; margin-bottom: 40px; max-width: 500px; animation: up .7s ease .3s both; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: up .7s ease .4s both; }
+  .btn-primary { background: var(--coral); color: white; padding: 16px 36px; border-radius: 50px; font-weight: 900; font-size: 1rem; text-decoration: none; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Nunito', sans-serif; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(242,92,84,.4); }
+  .btn-ghost { background: transparent; color: var(--dark); padding: 16px 36px; border-radius: 50px; font-weight: 900; font-size: 1rem; text-decoration: none; border: 2.5px solid var(--dark); transition: all .2s; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: 'Nunito', sans-serif; }
+  .btn-ghost:hover { background: var(--dark); color: white; }
+  .hero-stats { display: flex; gap: 44px; margin-top: 56px; padding-top: 40px; border-top: 2px solid rgba(0,0,0,.08); animation: up .7s ease .5s both; }
+  .stat-num { font-family:'Fredoka One',cursive; font-size:2.2rem; color:var(--coral); display:block; }
+  .stat-lbl { font-size:.82rem; color:var(--gray); font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+
+  /* STRIP */
+  .strip { background: var(--dark); color: white; padding: 18px 5%; text-align: center; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .strip a { color: var(--yellow); text-decoration: none; display:inline-flex; align-items:center; gap:4px; transition: gap .2s; }
+  .strip a:hover { gap: 10px; }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+  .label { font-size:.78rem; font-weight:900; letter-spacing:3px; text-transform:uppercase; color:var(--coral); margin-bottom:12px; display:block; }
+  .sec-title { font-family:'Fredoka One',cursive; font-size:clamp(2rem,4vw,3rem); line-height:1.1; margin-bottom:16px; }
+  .sec-sub { font-size:1rem; color:var(--gray); font-weight:600; max-width:540px; line-height:1.75; margin-bottom:60px; }
+
+  /* HOW */
+  #how { background: var(--dark); }
+  #how .label { color: var(--yellow); }
+  #how .sec-title { color: white; }
+  #how .sec-sub { color: rgba(255,255,255,.55); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 28px; }
+  .step { text-align: center; padding: 40px 24px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 24px; transition: transform .3s; }
+  .step:hover { transform: translateY(-10px); }
+  .step-num { width:60px; height:60px; background:var(--coral); border-radius:50%; font-family:'Fredoka One',cursive; font-size:1.8rem; color:white; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; }
+  .step h3 { font-family:'Fredoka One',cursive; font-size:1.35rem; margin-bottom:10px; color:white; }
+  .step p { color:rgba(255,255,255,.5); font-size:.9rem; line-height:1.7; font-weight:600; }
+
+  /* PACKAGES */
+  #packages { background: var(--cream); }
+  .pkg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px,1fr)); gap: 26px; }
+  .pkg-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.06); border: 2px solid transparent; transition: transform .3s, box-shadow .3s, border-color .3s; }
+  .pkg-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,.12); border-color: var(--coral); }
+  .card-img { height: 190px; display:flex; align-items:center; justify-content:center; font-size: 5rem; }
+  .card-emoji { animation: bob 3.5s ease-in-out infinite; filter:drop-shadow(0 8px 16px rgba(0,0,0,.15)); }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .card-body { padding: 26px; }
+  .card-tag { font-size:.72rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:6px; }
+  .card-name { font-family:'Fredoka One',cursive; font-size:1.55rem; margin-bottom:10px; }
+  .card-desc { font-size:.88rem; color:var(--gray); line-height:1.65; margin-bottom:20px; font-weight:600; }
+  .card-foot { display:flex; align-items:center; justify-content:space-between; }
+  .card-price { font-family:'Fredoka One',cursive; font-size:1.9rem; }
+  .card-price small { font-family:'Nunito',sans-serif; font-size:.78rem; color:var(--gray); font-weight:700; }
+  .card-addon { font-size:.78rem; color:var(--coral); font-weight:800; margin-top:6px; display:block; }
+  .book-btn { background: var(--dark); color: white; padding:10px 22px; border-radius:50px; font-weight:900; font-size:.82rem; text-decoration:none; border:none; cursor:pointer; transition:background .2s; font-family:'Nunito',sans-serif; }
+  .book-btn:hover { background: var(--coral); }
+
+  .custom-box { margin-top: 56px; background: linear-gradient(135deg, var(--coral), #ff8a65); border-radius: 24px; padding: 60px; text-align: center; color: white; position: relative; overflow: hidden; }
+  .custom-box::after { content:'✨'; position:absolute; font-size:9rem; top:-10px; right:10px; opacity:.12; pointer-events:none; }
+  .custom-box h3 { font-family:'Fredoka One',cursive; font-size:2rem; margin-bottom:12px; }
+  .custom-box p { font-size:1rem; opacity:.9; font-weight:600; margin-bottom:28px; max-width:540px; margin-left:auto; margin-right:auto; }
+  .btn-white { background:white; color:var(--coral); padding:14px 32px; border-radius:50px; font-weight:900; font-size:.95rem; text-decoration:none; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; font-family:'Nunito',sans-serif; transition:transform .2s; }
+  .btn-white:hover { transform:translateY(-3px); }
+
+  /* TRAVEL */
+  #travel { background: var(--light); }
+  .travel-layout { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .calc-box { background:white; border-radius:24px; padding:44px; box-shadow:0 8px 40px rgba(0,0,0,.08); }
+  .calc-box h3 { font-family:'Fredoka One',cursive; font-size:1.5rem; margin-bottom:6px; }
+  .calc-hint { color:var(--gray); font-size:.88rem; font-weight:600; margin-bottom:24px; }
+  .field { margin-bottom:18px; }
+  .field label { display:block; font-weight:800; font-size:.85rem; margin-bottom:7px; }
+  .field input { width:100%; padding:13px 18px; border:2.5px solid #E8E8F0; border-radius:12px; font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:600; outline:none; transition:border-color .2s; background:var(--cream); color:var(--dark); }
+  .field input:focus { border-color:var(--coral); }
+  .calc-result { display:none; margin-top:20px; padding:22px; background:var(--cream); border-radius:14px; border:2px solid rgba(242,92,84,.2); }
+  .calc-result.on { display:block; }
+  .result-lbl { font-size:.75rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:4px; }
+  .result-amt { font-family:'Fredoka One',cursive; font-size:2.8rem; color:var(--coral); }
+  .result-note { font-size:.82rem; color:var(--gray); font-weight:600; margin-top:8px; line-height:1.6; }
+  .calc-err { display:none; color:var(--coral); font-weight:800; font-size:.88rem; margin-top:10px; }
+  .service-chip { display:flex; align-items:flex-start; gap:14px; margin-top:36px; padding:22px; background:var(--dark); color:white; border-radius:16px; }
+  .chip-icon { font-size:1.8rem; flex-shrink:0; }
+  .service-chip h4 { font-family:'Fredoka One',cursive; font-size:1.1rem; margin-bottom:4px; }
+  .service-chip p { font-size:.82rem; opacity:.6; font-weight:600; line-height:1.5; }
+
+  /* BOOKING */
+  #book { background: var(--cream); }
+  .book-layout { display:grid; grid-template-columns:1fr 1.3fr; gap:80px; align-items:start; }
+  .book-info .sec-title { font-size:2.4rem; }
+  .book-info > p { color:var(--gray); font-weight:600; line-height:1.75; margin-bottom:32px; }
+  .cinfo { display:flex; flex-direction:column; gap:16px; }
+  .citem { display:flex; align-items:center; gap:14px; font-weight:800; }
+  .cicon { width:44px; height:44px; background:var(--coral); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+  .citem small { display:block; font-size:.82rem; color:var(--gray); font-weight:600; margin-top:2px; }
+  .bform { background:white; border-radius:28px; padding:44px; box-shadow:0 8px 40px rgba(0,0,0,.08); }
+  .bform > div > h3 { font-family:'Fredoka One',cursive; font-size:1.55rem; margin-bottom:28px; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .fg { margin-bottom:18px; }
+  .fg label { display:block; font-weight:900; font-size:.82rem; margin-bottom:7px; color:var(--dark); }
+  .fg input, .fg select, .fg textarea { width:100%; padding:13px 16px; border:2.5px solid #E8E8F0; border-radius:12px; font-family:'Nunito',sans-serif; font-size:.92rem; font-weight:600; outline:none; transition:border-color .2s; background:var(--cream); color:var(--dark); appearance:none; }
+  .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--coral); }
+  .fg textarea { resize:vertical; min-height:90px; }
+  .pkg-checks { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+  .ck { display:flex; align-items:center; gap:8px; font-size:.82rem; font-weight:800; cursor:pointer; padding:10px 13px; border:2px solid #E8E8F0; border-radius:10px; transition:all .2s; }
+  .ck:hover { border-color:var(--coral); }
+  .ck.on { border-color:var(--coral); background:rgba(242,92,84,.06); }
+  .ck input { accent-color:var(--coral); width:15px; height:15px; }
+  .travel-hint { display:none; margin-top:8px; padding:12px 16px; background:rgba(242,92,84,.07); border:2px solid rgba(242,92,84,.2); border-radius:10px; font-size:.82rem; font-weight:800; color:var(--coral); }
+  .travel-hint.on { display:block; }
+  .submit-btn { width:100%; background:var(--coral); color:white; padding:18px; border-radius:14px; font-family:'Fredoka One',cursive; font-size:1.2rem; border:none; cursor:pointer; letter-spacing:.5px; transition:transform .2s, box-shadow .2s; margin-top:6px; }
+  .submit-btn:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(242,92,84,.38); }
+  .success { display:none; text-align:center; padding:48px 24px; }
+  .success.on { display:block; }
+  .s-icon { font-size:4rem; margin-bottom:16px; }
+  .success h3 { font-family:'Fredoka One',cursive; font-size:1.8rem; margin-bottom:12px; }
+  .success p { color:var(--gray); font-weight:600; line-height:1.7; }
+
+  /* FOOTER */
+  footer { background:var(--dark); color:white; padding:60px 5%; text-align:center; }
+  .f-logo { font-family:'Fredoka One',cursive; font-size:2rem; margin-bottom:8px; }
+  .f-logo span { color:var(--coral); }
+  footer p { color:rgba(255,255,255,.45); font-size:.88rem; font-weight:600; margin-bottom:4px; }
+  .f-links { display:flex; justify-content:center; gap:28px; margin:24px 0; flex-wrap:wrap; }
+  .f-links a { color:rgba(255,255,255,.45); text-decoration:none; font-size:.88rem; font-weight:800; transition:color .2s; }
+  .f-links a:hover { color:var(--yellow); }
+  .f-copy { color:rgba(255,255,255,.25) !important; font-size:.78rem !important; margin-top:20px !important; }
+
+  /* RESPONSIVE */
+  @media(max-width:900px) {
+    nav ul { display:none; }
+    .travel-layout, .book-layout { grid-template-columns:1fr; gap:40px; }
+    .row2, .pkg-checks { grid-template-columns:1fr; }
+    .hero-stats { gap:24px; flex-wrap:wrap; }
+    .calc-box, .bform { padding:28px; }
+    .custom-box { padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">🎨</div>
+    Party Proper <span>LA</span>
+  </a>
+  <ul>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#travel">Service Area</a></li>
+    <li><a href="#book" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="confetti" style="top:18%;left:63%;width:14px;height:14px;background:#F7B731;animation-delay:0s;animation-duration:4.2s;transform:rotate(25deg)"></div>
+    <div class="confetti" style="top:32%;left:77%;width:10px;height:10px;background:#F25C54;border-radius:50%;animation-delay:1.1s;animation-duration:5s"></div>
+    <div class="confetti" style="top:58%;left:70%;width:12px;height:12px;background:#26DE81;animation-delay:2s;animation-duration:4.8s;transform:rotate(60deg)"></div>
+    <div class="confetti" style="top:22%;left:83%;width:8px;height:8px;background:#A55EEA;border-radius:50%;animation-delay:.5s;animation-duration:6s"></div>
+    <div class="confetti" style="top:72%;left:74%;width:11px;height:11px;background:#45AAF2;animation-delay:1.7s;animation-duration:5.3s;transform:rotate(45deg)"></div>
+    <div class="confetti" style="top:45%;left:58%;width:9px;height:9px;background:#F7B731;border-radius:50%;animation-delay:2.5s;animation-duration:4s"></div>
+  </div>
+  <div class="hero-content">
+    <div class="badge">✨ Now Serving Greater SoCal</div>
+    <h1>Creativity<br/><span class="c1">Comes to</span><br/><span class="c2">Every Party</span></h1>
+    <p class="hero-sub">We bring hands-on arts &amp; crafts experiences straight to your event — kids stay busy, parents stay present, and everyone goes home with something they made themselves.</p>
+    <div class="hero-btns">
+      <a href="#packages" class="btn-primary">See Our Packages →</a>
+      <a href="#book" class="btn-ghost">Book Now</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-num">6+</span><span class="stat-lbl">Craft Activities</span></div>
+      <div><span class="stat-num">100mi</span><span class="stat-lbl">Service Radius</span></div>
+      <div><span class="stat-num">∞</span><span class="stat-lbl">Custom Options</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNER STRIP -->
+<div class="strip">
+  🎪 Are you an event planner? We love partnering with pros.
+  <a href="#book">Let's collaborate →</a>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <span class="label">The Process</span>
+  <h2 class="sec-title">Simple. Seamless. So Much Fun.</h2>
+  <p class="sec-sub">From your first message to the last glitter piece — we handle everything so you can actually enjoy the moment.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h3>Pick Your Package</h3><p>Browse our activity bars or describe your theme — we'll build something custom if nothing fits exactly right.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Share Your Details</h3><p>Send us your date, location, and guest count. We'll confirm availability and send over your full quote.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>We Show Up Ready</h3><p>We arrive fully set up with all materials, smocks, and everything the kids need to get creative from minute one.</p></div>
+    <div class="step"><div class="step-num">4</div><h3>They Leave With Memories</h3><p>Every child goes home with a one-of-a-kind creation they made with their own hands. That's the whole point.</p></div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <span class="label">What We Do</span>
+  <h2 class="sec-title">Pick Your Activity Bar</h2>
+  <p class="sec-sub">All packages are priced per child and include all materials, setup, and cleanup. Need something different? We do custom bars too.</p>
+
+  <div class="pkg-grid">
+
+    <div class="pkg-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#d4f5d4,#a8e6a8)"><div class="card-emoji">🌵</div></div>
+      <div class="card-body">
+        <div class="card-tag">Fan Favorite</div>
+        <div class="card-name">The Plant Bar</div>
+        <p class="card-desc">Kids pot their own mini succulent into a painted terracotta pot and take it home. All soil, pots, paint, and smock covers included — mess is fully managed.</p>
+        <div class="card-foot">
+          <div><div class="card-price">$25 <small>/ per kid</small></div></div>
+          <a href="#book" class="book-btn">Book This</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fce4f5,#f5b8e8)"><div class="card-emoji">💎</div></div>
+      <div class="card-body">
+        <div class="card-tag">Sparkle &amp; Shine</div>
+        <div class="card-name">The Bedazzle Bar</div>
+        <p class="card-desc">Rhinestones, gems, glitter glue — kids bedazzle phone cases, mirrors, or accessories with an endless assortment of sparkly materials. Full glam guaranteed.</p>
+        <div class="card-foot">
+          <div><div class="card-price">$30 <small>/ per kid</small></div></div>
+          <a href="#book" class="book-btn">Book This</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fff3d4,#ffe4a0)"><div class="card-emoji">📿</div></div>
+      <div class="card-body">
+        <div class="card-tag">Wearable Art</div>
+        <div class="card-name">Charm Bracelet Bar</div>
+        <p class="card-desc">Kids choose from a curated collection of charms, beads, and trinkets to design their very own custom bracelet to wear home. Every one is totally unique.</p>
+        <div class="card-foot">
+          <div><div class="card-price">$25 <small>/ per kid</small></div></div>
+          <a href="#book" class="book-btn">Book This</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#ffd6e0,#c8e6ff,#d4f5d4)"><div class="card-emoji">🌈</div></div>
+      <div class="card-body">
+        <div class="card-tag">Bold &amp; Colorful</div>
+        <div class="card-name">Tie Dye Workshop</div>
+        <p class="card-desc">Twist, rubber band, and dye — kids create vibrant one-of-a-kind wearables they take home still warm. Gloves, table covers, and all dyes provided.</p>
+        <div class="card-foot">
+          <div><div class="card-price">$25 <small>/ per kid</small></div></div>
+          <a href="#book" class="book-btn">Book This</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e4d4f5,#c8b8e8)"><div class="card-emoji">🧸</div></div>
+      <div class="card-body">
+        <div class="card-tag">Build a Bestie</div>
+        <div class="card-name">Stuff-A-Friend Bar</div>
+        <p class="card-desc">Kids choose their own unstuffed plush animal, fill it with fluffy stuffing, and bring their new best friend to life. A keepsake they'll love long after the party.</p>
+        <div class="card-foot">
+          <div>
+            <div class="card-price">$30 <small>/ per kid</small></div>
+            <span class="card-addon">+ $10 add-on: outfit for your animal</span>
+          </div>
+          <a href="#book" class="book-btn">Book This</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#d4e8ff,#a8ccf0)"><div class="card-emoji">🧢</div></div>
+      <div class="card-body">
+        <div class="card-tag">For the Builders</div>
+        <div class="card-name">Lego Hat Bar</div>
+        <p class="card-desc">Each kid gets a hat with a Lego baseplate and a set of bricks to build their own custom wearable design. Creative, cool, and a total crowd-pleaser.</p>
+        <div class="card-foot">
+          <div><div class="card-price">$50 <small>/ per kid</small></div></div>
+          <a href="#book" class="book-btn">Book This</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="custom-box">
+    <h3>Don't See What You're Looking For?</h3>
+    <p>We offer fully custom arts &amp; crafts bars for any theme, any occasion, any age group. Tell us your vision — we'll build it from scratch just for you.</p>
+    <a href="#book" class="btn-white">Request a Custom Package →</a>
+  </div>
+</section>
+
+<!-- TRAVEL CALCULATOR -->
+<section id="travel">
+  <div class="travel-layout">
+    <div>
+      <span class="label">Service Area</span>
+      <h2 class="sec-title">We Come to You</h2>
+      <p class="sec-sub">Proudly serving the greater SoCal area within 100 miles of Palmdale &amp; Lancaster, CA. Enter your party location to get an instant travel fee estimate.</p>
+      <div class="service-chip">
+        <div class="chip-icon">📍</div>
+        <div>
+          <h4>Based in Palmdale, CA</h4>
+          <p>We serve the Antelope Valley, Greater LA, Ventura County, Inland Empire, and beyond. Hosting a special event outside our standard radius? Reach out — we travel for the right ones.</p>
+        </div>
+      </div>
+    </div>
+    <div class="calc-box">
+      <h3>Estimate Your Travel Fee</h3>
+      <p class="calc-hint">Enter your city or zip code for an instant estimate.</p>
+      <div class="field">
+        <label for="cloc">Party Location (City or Zip Code)</label>
+        <input type="text" id="cloc" placeholder="e.g. Burbank, CA or 91502" onkeydown="if(event.key==='Enter')doCalc()" />
+      </div>
+      <button class="btn-primary" id="calc-btn" onclick="doCalc()" style="width:100%;justify-content:center;">Calculate Travel Fee</button>
+      <div class="calc-result" id="cresult">
+        <div class="result-lbl">Estimated Travel Fee</div>
+        <div class="result-amt" id="famount">$0</div>
+        <div class="result-note" id="fnote"></div>
+      </div>
+      <div class="calc-err" id="cerr">⚠️ Couldn't find that location. Try a full city name or zip code.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="book-layout">
+    <div class="book-info">
+      <span class="label">Let's Make It Happen</span>
+      <h2 class="sec-title">Ready to Book?</h2>
+      <p>Fill out the form and we'll be in touch within 24 hours to confirm availability, finalize your package, and lock in your date. Event planners — let's talk partnership.</p>
+      <div class="cinfo">
+        <div class="citem"><div class="cicon">📍</div><div>Based in Palmdale, CA<small>Serving SoCal within 100 miles</small></div></div>
+        <div class="citem"><div class="cicon">⚡</div><div>Fast Response<small>We reply within 24 hours</small></div></div>
+        <div class="citem"><div class="cicon">🤝</div><div>Planners &amp; Venues Welcome<small>We love collaborating with event pros</small></div></div>
+      </div>
+    </div>
+
+    <div class="bform">
+      <div id="form-wrap">
+        <h3>Tell Us About Your Event</h3>
+        <div class="row2">
+          <div class="fg"><label>First Name</label><input type="text" id="ff" placeholder="Jane" /></div>
+          <div class="fg"><label>Last Name</label><input type="text" id="fl" placeholder="Smith" /></div>
+        </div>
+        <div class="row2">
+          <div class="fg"><label>Email</label><input type="email" id="fe" placeholder="jane@email.com" /></div>
+          <div class="fg"><label>Phone</label><input type="tel" id="fp" placeholder="(555) 000-0000" /></div>
+        </div>
+        <div class="row2">
+          <div class="fg"><label>Event Date</label><input type="date" id="fd" /></div>
+          <div class="fg"><label>Event Type</label>
+            <select id="ftype">
+              <option value="">Select one</option>
+              <option>Birthday Party</option>
+              <option>Baby Shower</option>
+              <option>School / Community Event</option>
+              <option>Corporate or Brand Event</option>
+              <option>Farmers Market</option>
+              <option>Wedding / Quinceañera</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="fg">
+            <label>Party Location (City or Zip)</label>
+            <input type="text" id="floc" placeholder="e.g. Valencia, CA" oninput="formTravel()" />
+            <div class="travel-hint" id="thint"></div>
+          </div>
+          <div class="fg"><label>Expected # of Kids</label><input type="number" id="fk" placeholder="e.g. 15" min="1" /></div>
+        </div>
+        <div class="fg"><label>Are you an event planner?</label>
+          <select id="fpl">
+            <option value="">Select one</option>
+            <option>Yes — I'm a planner / venue / vendor</option>
+            <option>No — this is a personal event</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Packages You're Interested In</label>
+          <div class="pkg-checks">
+            <label class="ck"><input type="checkbox" value="Plant Bar" /> 🌵 Plant Bar</label>
+            <label class="ck"><input type="checkbox" value="Bedazzle Bar" /> 💎 Bedazzle Bar</label>
+            <label class="ck"><input type="checkbox" value="Charm Bracelets" /> 📿 Charm Bracelets</label>
+            <label class="ck"><input type="checkbox" value="Tie Dye" /> 🌈 Tie Dye</label>
+            <label class="ck"><input type="checkbox" value="Stuff-A-Friend" /> 🧸 Stuff-A-Friend</label>
+            <label class="ck"><input type="checkbox" value="Lego Hat" /> 🧢 Lego Hat</label>
+            <label class="ck"><input type="checkbox" value="Custom Package" /> ✨ Custom Package</label>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Notes / Custom Package Details</label>
+          <textarea id="fn" placeholder="Tell us your theme, any special requests, or describe your custom package idea..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Send My Booking Request 🎉</button>
+      </div>
+      <div class="success" id="fsuccess">
+        <div class="s-icon">🎉</div>
+        <h3>We Got It!</h3>
+        <p>Thanks for reaching out! We'll review your details and follow up within 24 hours to confirm availability and lock in your date.<br/><br/>Get ready to make some memories. 🎨</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Party Proper <span>LA</span></div>
+  <p>Arts &amp; Crafts Experiences for Kids, Families &amp; Events</p>
+  <p>Palmdale, CA · Serving SoCal within 100 miles</p>
+  <div class="f-links">
+    <a href="#packages">Packages</a>
+    <a href="#how">How It Works</a>
+    <a href="#travel">Service Area</a>
+    <a href="#book">Book Now</a>
+  </div>
+  <p class="f-copy">© 2025 Party Proper LA. All rights reserved.</p>
+</footer>
+
+<script>
+  const PLA = { lat: 34.5794, lon: -118.1165 };
+
+  function haversine(la1, lo1, la2, lo2) {
+    const R = 3958.8, d = Math.PI / 180;
+    const dLa = (la2-la1)*d, dLo = (lo2-lo1)*d;
+    const a = Math.sin(dLa/2)**2 + Math.cos(la1*d)*Math.cos(la2*d)*Math.sin(dLo/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+  async function geocode(q) {
+    const h = {'User-Agent':'PartyProperLA/1.0'};
+    let r = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q+', California, USA')}&format=json&limit=1&countrycodes=us`,{headers:h});
+    let d = await r.json();
+    if (d.length) return d[0];
+    r = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1&countrycodes=us`,{headers:h});
+    d = await r.json();
+    return d[0] || null;
+  }
+
+  async function doCalc() {
+    const loc = document.getElementById('cloc').value.trim();
+    const res = document.getElementById('cresult');
+    const err = document.getElementById('cerr');
+    const btn = document.getElementById('calc-btn');
+    res.classList.remove('on'); err.style.display='none';
+    if (!loc) return;
+    btn.textContent='Calculating...'; btn.disabled=true;
+    try {
+      const p = await geocode(loc);
+      if (!p) throw new Error();
+      const mi = Math.round(haversine(PLA.lat, PLA.lon, parseFloat(p.lat), parseFloat(p.lon)));
+      const fee = mi + 100;
+      document.getElementById('famount').textContent = `$${fee}`;
+      document.getElementById('fnote').innerHTML = mi <= 100
+        ? `About ${mi} miles from Palmdale — your travel fee will be included in your final quote.`
+        : `📍 About ${mi} miles from Palmdale — outside our standard 100-mile area.<br/>We may still be available for larger or special events. Reach out to discuss!`;
+      res.classList.add('on');
+    } catch(e) { err.style.display='block'; }
+    finally { btn.textContent='Calculate Travel Fee'; btn.disabled=false; }
+  }
+
+  let tTimer = null;
+  function formTravel() {
+    const v = document.getElementById('floc').value.trim();
+    const hint = document.getElementById('thint');
+    if (!v || v.length < 3) { hint.classList.remove('on'); return; }
+    clearTimeout(tTimer);
+    tTimer = setTimeout(async () => {
+      hint.classList.add('on'); hint.textContent='📍 Calculating travel fee...';
+      try {
+        const p = await geocode(v);
+        if (!p) { hint.textContent="⚠️ Location not found — we'll confirm your travel fee after booking."; return; }
+        const mi = Math.round(haversine(PLA.lat, PLA.lon, parseFloat(p.lat), parseFloat(p.lon)));
+        const fee = mi + 100;
+        hint.textContent = mi <= 100
+          ? `📍 ~${mi} miles from Palmdale — estimated travel fee: $${fee}`
+          : `📍 ~${mi} miles — outside standard area. Contact us for a custom travel quote!`;
+      } catch { hint.classList.remove('on'); }
+    }, 900);
+  }
+
+  document.querySelectorAll('.ck input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', function(){ this.closest('.ck').classList.toggle('on', this.checked); });
+  });
+
+  function submitForm() {
+    const first = document.getElementById('ff').value.trim();
+    const email = document.getElementById('fe').value.trim();
+    const date = document.getElementById('fd').value;
+    if (!first || !email || !date) { alert('Please fill in your name, email, and event date to continue.'); return; }
+    document.getElementById('form-wrap').style.display='none';
+    document.getElementById('fsuccess').classList.add('on');
+  }
+</script>
+</body>
+</html>
