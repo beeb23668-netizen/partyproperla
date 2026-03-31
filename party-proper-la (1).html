@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Party Proper LA — Arts & Crafts Experiences for Kids & Adults</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral: #FF6B35;
+      --yellow: #FFD93D;
+      --teal: #4ECDC4;
+      --purple: #B66DFF;
+      --pink: #FF6EB4;
+      --navy: #1A1A2E;
+      --cream: #FFFAF3;
+      --white: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --soft-gray: #F5F0E8;
+      --text: #2D2D2D;
+      --text-light: #6B6B6B;
+      --radius: 20px;
+      --radius-lg: 32px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,250,243,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--yellow);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.5rem;
+      color: var(--coral);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--coral); }
+
+    .nav-cta {
+      background: var(--coral);
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: #e55a27 !important;
+      transform: translateY(-1px);
+      color: white !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #fff9f0 0%, #fff0e6 50%, #f0fffe 100%);
+      z-index: 0;
+    }
+
+    .hero-blobs {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+    }
+
+    .blob-1 { width: 500px; height: 500px; background: var(--yellow); top: -100px; right: -100px; animation: float 6s ease-in-out infinite; }
+    .blob-2 { width: 350px; height: 350px; background: var(--teal); bottom: -50px; left: -80px; animation: float 8s ease-in-out infinite reverse; }
+    .blob-3 { width: 250px; height: 250px; background: var(--pink); top: 40%; right: 30%; animation: float 7s ease-in-out infinite 1s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-20px) scale(1.05); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .hero-title .highlight { color: var(--coral); }
+    .hero-title .highlight-2 { color: var(--purple); }
+
+    .hero-sub {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--teal);
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--coral);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,107,53,0.45);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 2px solid var(--navy);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: var(--navy);
+      color: white;
+    }
+
+    .hero-floaters {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 460px;
+    }
+
+    .hero-floater-img {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .hero-floater-img:nth-child(1) { transform: rotate(-3deg) translateY(-10px); }
+    .hero-floater-img:nth-child(2) { transform: rotate(2deg) translateY(10px); }
+    .hero-floater-img:nth-child(3) { transform: rotate(2deg) translateY(-10px); }
+    .hero-floater-img:nth-child(4) { transform: rotate(-2deg) translateY(10px); }
+
+    .hero-floater-img img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-floater-label {
+      background: white;
+      padding: 10px 14px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: var(--navy);
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 90px 60px; }
+
+    .section-tag {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ── WHO WE SERVE ── */
+    .audience {
+      background: var(--navy);
+      padding: 80px 60px;
+    }
+
+    .audience-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .audience-text .section-tag { color: var(--yellow); }
+    .audience-text .section-title { color: white; }
+    .audience-text .section-desc { color: rgba(255,255,255,0.7); }
+
+    .audience-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .audience-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: background 0.3s;
+    }
+
+    .audience-card:hover { background: rgba(255,255,255,0.12); }
+
+    .audience-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .audience-card h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .audience-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    /* ── PACKAGES ── */
+    .packages { background: var(--cream); }
+
+    .packages-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .packages-header .section-desc { margin: 0 auto; }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .package-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .package-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .package-tag-bar {
+      padding: 10px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .pkg-plant { background: #4ECDC4; }
+    .pkg-bedazzle { background: #B66DFF; }
+    .pkg-charm { background: #FF6EB4; }
+    .pkg-tiedye { background: #FF6B35; }
+    .pkg-stuffed { background: #FFD93D; color: var(--navy) !important; }
+    .pkg-lego { background: #E63946; }
+
+    .package-body { padding: 20px 24px 28px; }
+
+    .package-emoji { font-size: 2rem; margin-bottom: 8px; display: block; }
+
+    .package-name {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .package-desc {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .package-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .package-price {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: var(--coral);
+    }
+
+    .package-price span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .package-add-on {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--purple);
+      background: #f3ebff;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    .custom-cta-block {
+      max-width: 1100px;
+      margin: 48px auto 0;
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--coral) 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .custom-cta-block h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .custom-cta-block p {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--coral);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    /* ── TRAVEL CALCULATOR ── */
+    .calculator {
+      background: var(--soft-gray);
+      padding: 90px 60px;
+    }
+
+    .calculator-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .calculator-header { text-align: center; margin-bottom: 48px; }
+    .calculator-header .section-desc { margin: 0 auto; }
+
+    .calc-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+
+    .calc-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .calc-input {
+      padding: 16px 20px;
+      border: 2px solid #E8E0D5;
+      border-radius: var(--radius);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .calc-input:focus { border-color: var(--coral); }
+    .calc-input::placeholder { color: #b0a89a; }
+
+    .calc-btn {
+      background: var(--coral);
+      color: white;
+      border: none;
+      padding: 16px 28px;
+      border-radius: var(--radius);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+
+    .calc-btn:hover { background: #e55a27; transform: translateY(-1px); }
+    .calc-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+    .calc-result {
+      display: none;
+      background: linear-gradient(135deg, #fff3ee, #fff9f0);
+      border: 2px solid var(--coral);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+    }
+
+    .calc-result.visible { display: block; animation: fadeInUp 0.4s ease; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .calc-result-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .calc-result-price {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+
+    .calc-result-detail {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .calc-error {
+      display: none;
+      background: #fff0f0;
+      border: 2px solid #ffcdd2;
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      color: #c62828;
+    }
+
+    .calc-error.visible { display: block; }
+
+    .calc-note {
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 16px;
+    }
+
+    /* ── BOOKING FORM ── */
+    .booking {
+      background: var(--cream);
+      padding: 90px 60px;
+    }
+
+    .booking-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .booking-header { text-align: center; margin-bottom: 48px; }
+    .booking-header .section-desc { margin: 0 auto; }
+
+    .form-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #E8E0D5;
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      background: white;
+    }
+
+    .form-control:focus { border-color: var(--coral); }
+    .form-control::placeholder { color: #b0a89a; }
+
+    select.form-control { cursor: pointer; }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .packages-select {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .pkg-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 2px solid #E8E0D5;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--navy);
+    }
+
+    .pkg-checkbox:has(input:checked) {
+      border-color: var(--coral);
+      background: #fff3ee;
+    }
+
+    .pkg-checkbox input {
+      accent-color: var(--coral);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--coral);
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: var(--radius);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(255,107,53,0.3);
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #e55a27;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,107,53,0.4);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .form-success.visible { display: block; animation: fadeInUp 0.4s ease; }
+
+    .form-success .success-emoji { font-size: 4rem; margin-bottom: 16px; display: block; }
+
+    .form-success h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .form-success p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: var(--coral);
+    }
+
+    .footer-logo span { color: var(--yellow); }
+
+    .footer-tagline {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    .footer-badge {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-badge strong {
+      color: var(--teal);
+    }
+
+    /* ── CONFETTI DECORATION ── */
+    .confetti-strip {
+      display: flex;
+      gap: 12px;
+      padding: 16px 60px;
+      background: var(--yellow);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .confetti-strip span {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: var(--navy);
+      animation: marquee 18s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .strip-inner {
+      display: flex;
+      gap: 40px;
+      animation: marquee 18s linear infinite;
+    }
+
+    .strip-inner span {
+      white-space: nowrap;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--navy);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .hero { flex-direction: column; padding: 100px 24px 60px; }
+      .hero-floaters { position: relative; right: auto; top: auto; transform: none; width: 100%; margin-top: 40px; grid-template-columns: 1fr 1fr; }
+      section { padding: 60px 24px; }
+      .packages-grid { grid-template-columns: 1fr; }
+      .audience-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .calc-form { grid-template-columns: 1fr; }
+      .packages-select { grid-template-columns: 1fr; }
+      .custom-cta-block { flex-direction: column; text-align: center; }
+      .calculator { padding: 60px 24px; }
+      .booking { padding: 60px 24px; }
+      footer { flex-direction: column; text-align: center; padding: 40px 24px; }
+      .footer-links { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Party Proper <span>LA</span></a>
+  <ul class="nav-links">
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#calculator">Travel Fee</a></li>
+    <li><a href="#booking">Book Now</a></li>
+    <li><a href="#booking" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">🎉 SoCal's Favorite Craft Experience</div>
+    <h1 class="hero-title">
+      Make it <span class="highlight">Crafty.</span><br>
+      Make it <span class="highlight-2">Proper.</span>
+    </h1>
+    <p class="hero-sub">Pop-up arts & crafts bars for birthday parties, events, and every occasion worth celebrating.</p>
+    <div class="hero-location">
+      📍 Serving SoCal within 100 miles of Palmdale, CA
+    </div>
+    <div class="hero-buttons">
+      <a href="#packages" class="btn-primary">See Our Packages</a>
+      <a href="#booking" class="btn-secondary">Book Now</a>
+    </div>
+  </div>
+  <div class="hero-floaters">
+    <div class="hero-floater-img">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=320&fit=crop&crop=center" alt="Kids crafting" />
+      <div class="hero-floater-label">🌿 Plant Bar</div>
+    </div>
+    <div class="hero-floater-img">
+      <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=320&fit=crop&crop=center" alt="Bedazzled accessories" />
+      <div class="hero-floater-label">💎 Bedazzle Bar</div>
+    </div>
+    <div class="hero-floater-img">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=320&fit=crop&crop=center" alt="Stuffed animals" />
+      <div class="hero-floater-label">🧸 Stuffed Animal Build</div>
+    </div>
+    <div class="hero-floater-img">
+      <img src="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=400&h=320&fit=crop&crop=center" alt="Tie dye" />
+      <div class="hero-floater-label">🌈 Tie Dye Workshop</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="confetti-strip">
+  <div class="strip-inner">
+    <span>🎨 Plant Bar</span>
+    <span>💎 Bedazzle Bar</span>
+    <span>📿 Charm Bracelets</span>
+    <span>🌈 Tie Dye</span>
+    <span>🧸 Stuffed Animal Build</span>
+    <span>🧱 Lego Hat Workshop</span>
+    <span>✨ Custom Packages Available</span>
+    <span>📍 SoCal's Craft Experience Experts</span>
+    <span>🎉 Party Proper LA</span>
+    <span>🎨 Plant Bar</span>
+    <span>💎 Bedazzle Bar</span>
+    <span>📿 Charm Bracelets</span>
+    <span>🌈 Tie Dye</span>
+    <span>🧸 Stuffed Animal Build</span>
+    <span>🧱 Lego Hat Workshop</span>
+    <span>✨ Custom Packages Available</span>
+    <span>📍 SoCal's Craft Experience Experts</span>
+    <span>🎉 Party Proper LA</span>
+  </div>
+</div>
+
+<!-- WHO WE SERVE -->
+<div class="audience">
+  <div class="audience-inner">
+    <div class="audience-text">
+      <div class="section-tag">Who We Serve</div>
+      <h2 class="section-title">Crafted for every kind of celebration.</h2>
+      <p class="section-desc">Whether you're planning your child's birthday or building out an unforgettable event experience, Party Proper LA delivers turn-key craft bars that kids love and planners trust.</p>
+    </div>
+    <div class="audience-cards">
+      <div class="audience-card">
+        <div class="audience-icon">🎂</div>
+        <div>
+          <h3>Parents & Families</h3>
+          <p>Birthday parties, baby showers, holiday events — we set it all up, run the activity, and clean up so you can enjoy the moment.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🗓️</div>
+        <div>
+          <h3>Event Planners & Coordinators</h3>
+          <p>Looking for a standout kids' activity for your next event? We plug into your program seamlessly with professional setup and branded experiences.</p>
+        </div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-icon">🛍️</div>
+        <div>
+          <h3>Markets & Pop-Ups</h3>
+          <p>Keep little ones engaged while their parents shop. We bring the full setup — all you need to do is say yes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <div class="section-tag">Our Packages</div>
+    <h2 class="section-title">Pick your experience.</h2>
+    <p class="section-desc">Every package is fully equipped — materials, setup, smocks, and all the magic included. Priced per kid, minimum guest counts may apply.</p>
+  </div>
+
+  <div class="packages-grid">
+
+    <!-- Plant Bar -->
+    <div class="package-card">
+      <img class="package-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop&crop=center" alt="Kids planting succulents in terra cotta pots" />
+      <div class="package-tag-bar pkg-plant">🌿 Plant Bar</div>
+      <div class="package-body">
+        <p class="package-desc">Kids paint their own mini terra cotta pot and plant a baby succulent to take home. Includes soil, pots, paints, and smocks. The sweetest little keepsake.</p>
+        <div class="package-price-row">
+          <div class="package-price">$25 <span>/ per kid</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bedazzle Bar -->
+    <div class="package-card">
+      <img class="package-img" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&h=400&fit=crop&crop=center" alt="Bedazzled phone cases and accessories with gems" />
+      <div class="package-tag-bar pkg-bedazzle">💎 Bedazzle Bar</div>
+      <div class="package-body">
+        <p class="package-desc">Phone cases, mirrors, accessories — kids go wild with gems, jewels, and glitter to create a one-of-a-kind bedazzled masterpiece they'll show off forever.</p>
+        <div class="package-price-row">
+          <div class="package-price">$30 <span>/ per kid</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charm Bracelets -->
+    <div class="package-card">
+      <img class="package-img" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=400&fit=crop&crop=center" alt="Colorful kids charm bracelets with beads and trinkets" />
+      <div class="package-tag-bar pkg-charm">📿 Charm Bracelets</div>
+      <div class="package-body">
+        <p class="package-desc">Beads, charms, and trinkets galore. Kids design and string their own custom charm bracelet — a wearable memory they made themselves.</p>
+        <div class="package-price-row">
+          <div class="package-price">$25 <span>/ per kid</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tie Dye -->
+    <div class="package-card">
+      <img class="package-img" src="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?w=600&h=400&fit=crop&crop=center" alt="Colorful tie dye fabric being created" />
+      <div class="package-tag-bar pkg-tiedye">🌈 Tie Dye Workshop</div>
+      <div class="package-body">
+        <p class="package-desc">Classic, vibrant, and always a hit. Kids twist, fold, and dye their own wearable creation. Smocks and gloves included — zero mess, maximum fun.</p>
+        <div class="package-price-row">
+          <div class="package-price">$25 <span>/ per kid</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stuffed Animal Build -->
+    <div class="package-card">
+      <img class="package-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center" alt="Cute unstuffed and stuffed plush animals" />
+      <div class="package-tag-bar pkg-stuffed">🧸 Stuffed Animal Build</div>
+      <div class="package-body">
+        <p class="package-desc">Kids stuff, fluff, and bring their very own plushie to life. Starting with an empty animal and filling it with love — the ultimate take-home keepsake.</p>
+        <div class="package-price-row">
+          <div class="package-price">$30 <span>/ per kid</span></div>
+          <span class="package-add-on">+$10 outfit add-on</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lego Hat -->
+    <div class="package-card">
+      <img class="package-img" src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=400&fit=crop&crop=center" alt="Lego bricks and building pieces for kids" />
+      <div class="package-tag-bar pkg-lego">🧱 Lego Hat Workshop</div>
+      <div class="package-body">
+        <p class="package-desc">A Lego-base hat meets unlimited building potential. Kids get their own hat fitted with a Lego brick base, then go wild designing their custom creation on top.</p>
+        <div class="package-price-row">
+          <div class="package-price">$50 <span>/ per kid</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Custom CTA -->
+  <div class="custom-cta-block">
+    <div>
+      <h3>Don't see exactly what you need?</h3>
+      <p>We build custom arts & crafts bars for any theme, age group, or vibe. Tell us your vision and we'll make it happen.</p>
+    </div>
+    <a href="#booking" class="btn-white">Request a Custom Package →</a>
+  </div>
+</section>
+
+<!-- TRAVEL CALCULATOR -->
+<section class="calculator" id="calculator">
+  <div class="calculator-inner">
+    <div class="calculator-header">
+      <div class="section-tag">Travel Fee Calculator</div>
+      <h2 class="section-title">We'll come to you.</h2>
+      <p class="section-desc">Enter your event address to get an estimated travel fee. We serve all of SoCal within 100 miles of Palmdale — and beyond for the right occasion.</p>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-form">
+        <input type="text" class="calc-input" id="address-input" placeholder="Enter your event address (e.g. 123 Main St, Los Angeles, CA)" />
+        <button class="calc-btn" id="calc-btn" onclick="calculateTravel()">Calculate →</button>
+      </div>
+
+      <div class="calc-result" id="calc-result">
+        <div class="calc-result-label">Estimated Travel Fee</div>
+        <div class="calc-result-price" id="calc-price">$0</div>
+        <div class="calc-result-detail" id="calc-detail"></div>
+      </div>
+
+      <div class="calc-error" id="calc-error"></div>
+
+      <p class="calc-note">💡 Final travel fee is confirmed at booking. Events beyond 100 miles available for larger celebrations — contact us for a custom quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-header">
+      <div class="section-tag">Book Party Proper LA</div>
+      <h2 class="section-title">Let's make something fun.</h2>
+      <p class="section-desc">Tell us about your event and we'll be in touch within 24 hours to lock in the details.</p>
+    </div>
+
+    <div class="form-card">
+      <div id="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input type="text" class="form-control" id="fname" placeholder="Your first name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name *</label>
+            <input type="text" class="form-control" id="lname" placeholder="Your last name" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-control" id="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" placeholder="(555) 000-0000" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Event Date *</label>
+            <input type="date" class="form-control" id="event-date" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Number of Kids *</label>
+            <input type="number" class="form-control" id="num-kids" placeholder="Estimated guest count" min="1" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Event Address *</label>
+          <input type="text" class="form-control" id="event-address" placeholder="Full event address including city, state, zip" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">I'm a...</label>
+          <select class="form-control" id="client-type">
+            <option value="">Select one</option>
+            <option value="parent">Parent / Family</option>
+            <option value="planner">Event Planner / Coordinator</option>
+            <option value="market">Market / Pop-Up Organizer</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Packages You're Interested In</label>
+          <div class="packages-select">
+            <label class="pkg-checkbox"><input type="checkbox" value="plant" /> 🌿 Plant Bar — $25/kid</label>
+            <label class="pkg-checkbox"><input type="checkbox" value="bedazzle" /> 💎 Bedazzle Bar — $30/kid</label>
+            <label class="pkg-checkbox"><input type="checkbox" value="charm" /> 📿 Charm Bracelets — $25/kid</label>
+            <label class="pkg-checkbox"><input type="checkbox" value="tiedye" /> 🌈 Tie Dye — $25/kid</label>
+            <label class="pkg-checkbox"><input type="checkbox" value="stuffed" /> 🧸 Stuffed Animal Build — $30/kid</label>
+            <label class="pkg-checkbox"><input type="checkbox" value="lego" /> 🧱 Lego Hat — $50/kid</label>
+            <label class="pkg-checkbox"><input type="checkbox" value="custom" /> ✨ Custom Package</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Tell us about your event</label>
+          <textarea class="form-control" id="notes" placeholder="Theme, vibe, age group, any special requests or questions..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">Send My Booking Request 🎉</button>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <span class="success-emoji">🎉</span>
+        <h3>You're all set!</h3>
+        <p>Thanks for reaching out! We received your booking request and will be in touch within 24 hours to confirm the details and get your craft bar on the calendar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Party Proper <span>LA</span></div>
+    <div class="footer-tagline">Arts & Crafts Experiences · SoCal's Craft Bar Experts</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#calculator">Travel Fee</a></li>
+    <li><a href="#booking">Book Now</a></li>
+  </ul>
+  <div class="footer-badge">Serving SoCal within <strong>100 miles</strong> of Palmdale, CA</div>
+</footer>
+
+<script>
+  // ── TRAVEL CALCULATOR ──
+  const PALMDALE_LAT = 34.5794;
+  const PALMDALE_LNG = -118.1165;
+  const RATE_PER_MILE = 1.00;
+  const BASE_FEE = 100;
+  const MAX_MILES = 100;
+  const ROAD_FACTOR = 1.28;
+
+  function toRad(deg) { return deg * Math.PI / 180; }
+
+  function haversineDistance(lat1, lng1, lat2, lng2) {
+    const R = 3958.8;
+    const dLat = toRad(lat2 - lat1);
+    const dLng = toRad(lng2 - lng1);
+    const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+  async function calculateTravel() {
+    const input = document.getElementById('address-input').value.trim();
+    const btn = document.getElementById('calc-btn');
+    const resultEl = document.getElementById('calc-result');
+    const errorEl = document.getElementById('calc-error');
+    const priceEl = document.getElementById('calc-price');
+    const detailEl = document.getElementById('calc-detail');
+
+    if (!input) {
+      showCalcError('Please enter an event address to calculate.');
+      return;
+    }
+
+    resultEl.classList.remove('visible');
+    errorEl.classList.remove('visible');
+    btn.disabled = true;
+    btn.textContent = 'Calculating...';
+
+    try {
+      const encoded = encodeURIComponent(input + ', California');
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us`, {
+        headers: { 'Accept-Language': 'en', 'User-Agent': 'PartyProperLA/1.0' }
+      });
+      const data = await res.json();
+
+      if (!data || data.length === 0) {
+        showCalcError("We couldn't find that address. Try adding the city and zip code.");
+        return;
+      }
+
+      const { lat, lon, display_name } = data[0];
+      const straightLineMiles = haversineDistance(PALMDALE_LAT, PALMDALE_LNG, parseFloat(lat), parseFloat(lon));
+      const estimatedRoadMiles = straightLineMiles * ROAD_FACTOR;
+      const roundedMiles = Math.round(estimatedRoadMiles);
+
+      if (roundedMiles > MAX_MILES) {
+        showCalcError(`Your event is approximately ${roundedMiles} miles away — that's outside our standard 100-mile service area. Contact us directly for larger events or special occasions. We'd love to make it work!`);
+        return;
+      }
+
+      const travelFee = Math.round(estimatedRoadMiles * RATE_PER_MILE + BASE_FEE);
+
+      priceEl.textContent = `$${travelFee}`;
+      detailEl.textContent = `Estimated ${roundedMiles} miles from Palmdale · Travel fee included in your booking quote`;
+      resultEl.classList.add('visible');
+
+    } catch (err) {
+      showCalcError("Something went wrong. Please check your connection and try again.");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Calculate →';
+    }
+  }
+
+  function showCalcError(msg) {
+    const errorEl = document.getElementById('calc-error');
+    errorEl.textContent = msg;
+    errorEl.classList.add('visible');
+    document.getElementById('calc-result').classList.remove('visible');
+    document.getElementById('calc-btn').disabled = false;
+    document.getElementById('calc-btn').textContent = 'Calculate →';
+  }
+
+  document.getElementById('address-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') calculateTravel();
+  });
+
+  // ── BOOKING FORM ──
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const date = document.getElementById('event-date').value;
+    const kids = document.getElementById('num-kids').value;
+    const address = document.getElementById('event-address').value.trim();
+
+    if (!fname || !lname || !email || !date || !kids || !address) {
+      alert('Please fill in all required fields before submitting.');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    document.getElementById('booking-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('visible');
+    window.scrollTo({ top: document.getElementById('booking').offsetTop, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
